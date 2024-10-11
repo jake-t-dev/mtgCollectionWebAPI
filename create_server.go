@@ -22,7 +22,7 @@ func NewAPIServer(listenAddr string) *APIServer {
 func (s *APIServer) Run() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/home", makeHTTPHandleFunc(nil)) //sample handler
+	router.HandleFunc("/home", makeHTTPHandleFunc(s.handleReq)) //sample handler
 
 	log.Printf("JSON API server running on port: %s", s.listenAddr)
 
